@@ -6,6 +6,7 @@
 # Preparing environment...
 # Set correct hostname
 hostnamectl set-hostname cld-vul-syd-pxldmcft-01.pixelhaystack.com
+export HISTCONTROL=ignorespace
 
 # To configure timezones
 timedatectl set-timezone Australia/Brisbane
