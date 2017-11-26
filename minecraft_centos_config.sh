@@ -67,18 +67,7 @@ yum -y install p7zip unzip zip joe vim lynx w3m w3m-img rkhunter
 #getenforce
 #setenforce 1
 
-# Minecraft related packages
-yum -y install java-1.8.0-openjdk
-mkdir /opt/minecraft
-chown -R pxlusr:pxlusr /opt/minecraft
-chmod -R 770 /opt/minecraft 
-cd /opt/minecraft
-wget https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar
-chown -R pxlusr:pxlusr /opt/minecraft
-chmod -R 770 /opt/minecraft 
-
-
-# Secure server
+# Secure Minecraft server configuration 
 adduser minecraft --system --shell /bin/bash --home /opt/minecraft -g minecraft
 id minecraft
 mkdir /opt/minecraft
@@ -90,7 +79,10 @@ chown -R minecraft:minecraft /opt/minecraft
 chmod -R 770 /opt/minecraft 
 
 # Run it to add Op and Whitelist users
-java -Xmx1024M -Xms1024M -jar /opt/minecraft/minecraft_server.1.12.2.jar nogui
+cd /opt/minecraft
+java -Xmx1024M -Xms768M -jar minecraft_server.1.12.2.jar nogui
+chown -R minecraft:minecraft /opt/minecraft
+chmod -R 770 /opt/minecraft
 
 # More can be found here https://minecraft.gamepedia.com/Commands
 # To generate UUID for whilist
@@ -110,7 +102,7 @@ whitelist remove <player>
 # Configure as a services
 nano /usr/lib/systemd/system/minecraftd.service
 
-# Start here
+# Service file starts here
 [Unit]
 Description=Minecraft Server %i
 After=network.target
