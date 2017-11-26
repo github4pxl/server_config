@@ -32,7 +32,16 @@ mkdir /home/pxlusr/.ssh
 cp .ssh/authorized_keys /home/pxlusr/.ssh/
 cd /home/pxlusr/.ssh/
 chown pxlusr:pxlusr authorized_keys
- 
+#
+#
+mkdir -p /root/.ssh
+chmod 600 /root/.ssh
+echo ssh-rsa AA... youremail@example.com > /root/.ssh/authorized_keys
+chmod 700 /root/.ssh/authorized_keys
+#
+#
+
+
 # Modify sshd_config file followed by service restart
 systemctl restart sshd.service
  
