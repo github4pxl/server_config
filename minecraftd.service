@@ -1,3 +1,13 @@
+# Prerequisites
+#
+# adduser --system --home /opt/minecraft minecraft
+# addgroup --system minecraft
+# adduser minecraft minecraft
+# OR
+# adduser minecraft --system --shell /bin/bash --home /opt/minecraft -g minecraft
+# groupadd minecraft #shouldn't be needed
+#
+
 [Unit]
 Description=Minecraft Server %i
 After=network.target
