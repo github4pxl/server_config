@@ -10,8 +10,12 @@ export HISTCONTROL=ignorespace
 
 # Install basic tools
 yum update && yum upgrade
-yum -y install gpasswd net-tools bind-utils sudo links gcc git nmap wget curl telnet p7zip zip tcpdump rkhunter ntp nano joe vim python34-setuptools redis haveged
- 
+yum -y install gpasswd net-tools bind-utils sudo links gcc git nmap wget curl telnet p7zip unzip zip tcpdump rkhunter ntp nano joe vim python34-setuptools redis haveged
+# yum whatprovides <app_name>
+
+# Postfix is optional
+#yum -y install postfix dovecot
+
 # Easy install
 sudo easy_install-3.4 pip
  
@@ -36,9 +40,10 @@ systemctl restart sshd.service
 rkhunter --check
  
 # Install and configure SElinux Policy
-yum -y install selinux-policy
-getenforce
-setenforce 0 [OR 1]
+# If it bricks your VPS, add 'sepolicy=0' in GRUB when booting
+# yum -y install selinux-policy
+# getenforce
+# setenforce 0 [OR 1]
  
 # Other dependencies and additional RedHat repos
 yum -y install epel-release centos-release-scl
