@@ -1,3 +1,10 @@
+#!/bin/bash
+# Version 0.1 24/11/2017
+# Author 'AdB'
+# This scripts installs my must-have packages on Vultr servers
+#
+# Preparing environment...
+#
 apt-get update && apt-get upgrade
 export LC_ALL="en_US.UTF-8"
 export HISTCONTROL=ignorespace
