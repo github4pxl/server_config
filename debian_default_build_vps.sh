@@ -4,6 +4,8 @@
 # This scripts installs my must-have packages on Vultr servers
 #
 # Preparing environment...
+export HISTCONTROL=ignorespace
+
 apt-get -y install aptitude
 aptitude update
 aptitude -y dist-upgrade
