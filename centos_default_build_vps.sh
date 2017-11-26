@@ -6,7 +6,8 @@
 # Preparing environment...
 # Set correct hostname
 hostnamectl set-hostname hostname.domain.com
- 
+export HISTCONTROL=ignorespace
+
 # Install basic tools
 yum update && yum upgrade
 yum -y install gpasswd net-tools bind-utils sudo links gcc git nmap wget curl telnet p7zip zip tcpdump rkhunter ntp nano joe vim python34-setuptools redis haveged
